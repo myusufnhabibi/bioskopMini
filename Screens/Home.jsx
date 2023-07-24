@@ -1,8 +1,7 @@
 import react, { useState } from "react";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import Header from './../Components/Header'
 import { SafeAreaView } from "react-native-safe-area-context";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { useColors } from "../Utils/Color";
 import ComingSoon from "./../Components/ComingSoon";
 import NowPlaying from "./../Components/NowPlaying";
