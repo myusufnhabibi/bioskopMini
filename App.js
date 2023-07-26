@@ -6,6 +6,7 @@ import Splash from "./Screens/Splash";
 import SelectCity from "./Screens/SelectCity";
 import Home from "./Screens/Home";
 import Detail from "./Screens/Detail";
+import Malls from "./Screens/Malls";
 import React from "react";
 import { Wrapper } from "./Context/Wrapper";
 
@@ -16,13 +17,14 @@ export default function App() {
     <Wrapper>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Splash"
+          initialRouteName="Malls"
           screenOptions={{ headerShown: false }}
         >
           <Stack.Screen name="Splash" component={Splash} />
           <Stack.Screen name="SelectCity" component={SelectCity} />
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Detail" component={Detail} />
+          <Stack.Screen name="Malls" component={Malls} />
         </Stack.Navigator>
       </NavigationContainer>
     </Wrapper>
