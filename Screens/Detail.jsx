@@ -1,5 +1,5 @@
 import react, { useContext, useState } from "react";
-import { View, Text, FlatList, TouchableOpacity } from "react-native";
+import { View, Text, FlatList, TouchableOpacity, Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons, Feather, AntDesign } from "@expo/vector-icons";
 import { useColors } from "../Utils/Color";
@@ -10,7 +10,8 @@ import { useNavigation } from "@react-navigation/native";
 export default function Detai({ route }) {
   const nav = useNavigation();
   const [pilih, setPilih] = useState();
-  const { title } = route.params.item;
+  const [date, setDate] = useState();
+  const { title, img } = route.params.item;
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "white", gap: 10 }}>
       <View
@@ -18,7 +19,7 @@ export default function Detai({ route }) {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "space-between",
-          height: responsiveHeight(6),
+          height: responsiveHeight(7),
           paddingHorizontal: 15,
           borderBottomWidth: 2,
           borderColor: "#E3E3E3",
@@ -50,6 +51,7 @@ export default function Detai({ route }) {
               activeOpacity={0.8}
               onPress={() => {
                 setPilih(item);
+                setDate(item)
               }}
               style={{
                 alignItems: "center",
@@ -120,9 +122,17 @@ export default function Detai({ route }) {
             <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
               {item.timings.map((value, index) => (
                 <TouchableOpacity
-                    onPress={() => {
-                        nav.navigate('Malls')
-                    }}
+                  onPress={() => {
+                    date != null ?
+                      nav.navigate('Malls', {
+                        title,
+                        mall: item.name,
+                        date,
+                        time: value,
+                        img: img
+                      }) : Alert.alert('Please Select Date')
+                    // console.log(date)
+                  }}
                   key={index}
                   style={{
                     paddingHorizontal: 10,

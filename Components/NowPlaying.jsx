@@ -13,7 +13,7 @@ export default function NowPlaying() {
             <View style={{ flex: 1, margin: '1%' }}>
                 <Image style={{ height: 400, borderRadius: 10 }} source={{ uri: item.img }} />
                 <TouchableOpacity onPress={() => {
-                    nav.navigate('Detail', {item})
+                    nav.navigate('Detail', { item })
                 }} style={{ position: 'absolute', bottom: 25, left: 10, gap: 5 }}>
                     <Text style={{ fontSize: 16, color: useColors.white, fontWeight: 'bold' }}>{item.title}</Text>
                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
